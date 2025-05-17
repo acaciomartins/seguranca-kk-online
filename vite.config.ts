@@ -1,23 +1,11 @@
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
 
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import { componentTagger } from "lovable-tagger";
-import path from 'path';
+export default async () => {
+  const { componentTagger } = await import('lovable-tagger')
 
-// https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
-  server: {
-    host: "::",
-    port: 8080,
-  },
-  plugins: [
-    react(),
-    mode === 'development' && componentTagger(),
-  ].filter(Boolean),
-  base: '/',
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
-    },
-  },
-}));
+  return defineConfig({
+    plugins: [vue(), componentTagger()],
+  })
+}
+
