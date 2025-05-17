@@ -2,8 +2,34 @@
 import MainLayout from "@/components/layout/MainLayout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import ClientLogo from "@/components/ClientLogo";
+
+// Import client logos
+import ecocleanLogo from "@/assets/clients/ecoclean.png";
+import escalonarLogo from "@/assets/clients/escalonar.png";
+import ltsLogo from "@/assets/clients/lts.png";
+import construtoraReisLogo from "@/assets/clients/construtora-reis.png";
+import artflexLogo from "@/assets/clients/artflex.png";
+import befortLogo from "@/assets/clients/befort.png";
+import ribeiroPachecoLogo from "@/assets/clients/ribeiro-pacheco.png";
+import atlasLogo from "@/assets/clients/atlas.png";
+import jiaLogo from "@/assets/clients/jia.png";
+import premiumPackLogo from "@/assets/clients/premium-pack.png";
 
 const SobrePage = () => {
+  const clients = [
+    { logo: ecocleanLogo, name: "EcoClean" },
+    { logo: escalonarLogo, name: "Escalonar Construtora" },
+    { logo: ltsLogo, name: "LTS Engenharia" },
+    { logo: construtoraReisLogo, name: "Construtora Reis" },
+    { logo: artflexLogo, name: "Artflex Engenharia" },
+    { logo: befortLogo, name: "Befort Construtora" },
+    { logo: ribeiroPachecoLogo, name: "Ribeiro & Pacheco Eventos" },
+    { logo: atlasLogo, name: "Atlas Locações" },
+    { logo: jiaLogo, name: "JIA Empreiteira" },
+    { logo: premiumPackLogo, name: "Premium Pack" },
+  ];
+
   return (
     <MainLayout>
       {/* Hero Section */}
@@ -169,6 +195,28 @@ const SobrePage = () => {
                 em setores industriais de alto risco.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Clients Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-900">Nossos Clientes</h2>
+            <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+              Empresas que confiam em nossos serviços de consultoria e treinamentos
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
+            {clients.map((client, index) => (
+              <ClientLogo 
+                key={index} 
+                src={client.logo} 
+                alt={`Logo ${client.name}`} 
+              />
+            ))}
           </div>
         </div>
       </section>
