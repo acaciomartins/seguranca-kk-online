@@ -7,12 +7,9 @@ export default defineConfig(({ mode }) => ({
   base: "/seguranca-kk-online/", // This sets the correct base path for GitHub Pages
   server: {
     host: "::",
-    port: 8081,
+    port: 8080,
   },
-  plugins: [
-    react(),
-    mode === "development" && componentTagger(), // remove ou ajusta se não estiver usando
-  ].filter(Boolean),
+  plugins: [react()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
