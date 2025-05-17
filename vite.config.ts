@@ -4,6 +4,7 @@ import path from "path";
 import { componentTagger } from "lovable-tagger"; // ou ajuste conforme o export correto da lib
 
 export default defineConfig(({ mode }) => ({
+  base: "/seguranca-kk-online/", // This sets the correct base path for GitHub Pages
   server: {
     host: "::",
     port: 8081,
